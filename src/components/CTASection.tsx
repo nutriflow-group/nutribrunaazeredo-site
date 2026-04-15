@@ -1,7 +1,8 @@
 ﻿import { motion } from "framer-motion";
 import { Calendar, MessageCircle } from "lucide-react";
 
-const WHATSAPP_URL = "https://wa.me/5521988730072?text=OlÃ¡! Gostaria de agendar uma consulta.";
+const WHATSAPP_MESSAGE = "Olá! Gostaria de agendar uma consulta.";
+const WHATSAPP_URL = `https://wa.me/5521988730072?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 
 export default function CTASection() {
   return (
@@ -14,10 +15,10 @@ export default function CTASection() {
           className="bg-primary rounded-2xl p-10 md:p-16 text-center"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
-            Pronta para comeÃ§ar sua transformaÃ§Ã£o?
+            Pronta para começar sua transformação?
           </h2>
           <p className="text-primary-foreground/80 max-w-lg mx-auto mb-8">
-            DÃª o primeiro passo rumo a uma vida mais leve, saudÃ¡vel e em paz com
+            Dê o primeiro passo rumo a uma vida mais leve, saudável e em paz com
             a comida. Agende sua consulta agora.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

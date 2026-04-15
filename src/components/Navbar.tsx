@@ -1,16 +1,18 @@
 ﻿import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import logoImg from "@/assets/logo_1.jpg";
 
 const links = [
   { href: "#sobre", label: "Sobre" },
   { href: "#como-funciona", label: "Como funciona" },
-  { href: "#servicos", label: "ServiÃ§os" },
+  { href: "#servicos", label: "Serviços" },
   { href: "#depoimentos", label: "Depoimentos" },
   { href: "#faq", label: "FAQ" },
 ];
 
-const WHATSAPP_URL = "https://wa.me/5521988730072?text=OlÃ¡! Gostaria de agendar uma consulta.";
+const WHATSAPP_MESSAGE = "Olá! Gostaria de agendar uma consulta.";
+const WHATSAPP_URL = `https://wa.me/5521988730072?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -18,11 +20,17 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="container flex items-center justify-between h-16">
-        <a href="#" className="font-display text-xl font-semibold text-foreground">
-          Bruna <span className="text-primary">NutriÃ§Ã£o</span>
+        <a href="#" className="flex items-center gap-2 font-display text-xl font-semibold text-foreground">
+          <img
+            src={logoImg}
+            alt="Logo Bruna Nutricionista"
+            className="h-8 w-8 object-contain mix-blend-multiply"
+          />
+          <span>
+            Bruna <span className="text-primary">Nutricionista</span>
+          </span>
         </a>
 
-        {/* Desktop */}
         <div className="hidden md:flex items-center gap-8">
           {links.map((l) => (
             <a key={l.href} href={l.href} className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
@@ -34,13 +42,11 @@ export default function Navbar() {
           </a>
         </div>
 
-        {/* Mobile toggle */}
         <button onClick={() => setOpen(!open)} className="md:hidden p-2 text-foreground" aria-label="Menu">
           {open ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {open && (
           <motion.div

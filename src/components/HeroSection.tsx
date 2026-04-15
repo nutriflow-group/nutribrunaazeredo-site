@@ -1,8 +1,9 @@
 ﻿import { motion } from "framer-motion";
 import { Calendar, MessageCircle } from "lucide-react";
-import brunaImg from "@/assets/bruna-hero.jpg";
+import brunaImg from "@/assets/Bruna_1.jpg";
 
-const WHATSAPP_URL = "https://wa.me/5521988730072?text=OlÃ¡! Gostaria de agendar uma consulta.";
+const WHATSAPP_MESSAGE = "Olá! Gostaria de agendar uma consulta.";
+const WHATSAPP_URL = `https://wa.me/5521988730072?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 
 export default function HeroSection() {
   return (
@@ -15,15 +16,15 @@ export default function HeroSection() {
             transition={{ duration: 0.7 }}
           >
             <span className="inline-block text-sm font-medium text-primary bg-accent px-4 py-1.5 rounded-full mb-6">
-              Nutricionista ClÃ­nica
+              Nutricionista Clínica
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground mb-6">
-              Transforme sua relaÃ§Ã£o com a{" "}
+              Transforme sua relação com a{" "}
               <span className="text-primary italic">comida</span>
             </h1>
             <p className="text-lg text-muted-foreground mb-8 max-w-lg leading-relaxed">
-              Chega de dietas restritivas que nÃ£o funcionam. Descubra um caminho
-              leve, personalizado e sustentÃ¡vel para alcanÃ§ar seus objetivos.
+              Chega de dietas restritivas que não funcionam. Descubra um caminho
+              leve, personalizado e sutentar para Alcançar seus objetivos.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
@@ -54,13 +55,15 @@ export default function HeroSection() {
             className="relative flex justify-center"
           >
             <div className="relative w-72 md:w-80 lg:w-96">
-              <div className="absolute -inset-4 bg-accent rounded-[2rem] -rotate-3" />
-              <img
-                src={brunaImg}
-                alt="Bruna - Nutricionista"
-                className="relative rounded-[1.5rem] w-full object-cover shadow-lg"
-                loading="eager"
-              />
+              <div className="absolute -inset-3 md:-inset-4 bg-accent rounded-[2rem] -rotate-2" />
+              <div className="relative rounded-[1.5rem] overflow-hidden shadow-lg">
+                <img
+                  src={brunaImg}
+                  alt="Bruna - Nutricionista"
+                  className="w-full h-[24rem] md:h-[26rem] object-cover object-[58%_35%]"
+                  loading="eager"
+                />
+              </div>
             </div>
           </motion.div>
         </div>

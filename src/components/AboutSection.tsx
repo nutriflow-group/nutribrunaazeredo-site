@@ -1,5 +1,6 @@
-import { motion } from "framer-motion";
+﻿import { motion } from "framer-motion";
 import { Heart, Users, Sparkles } from "lucide-react";
+import aboutImg from "@/assets/DSC_1018.jpg";
 
 const highlights = [
   { icon: Heart, text: "Atendimento humanizado e acolhedor" },
@@ -17,10 +18,18 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="flex justify-center"
           >
-            <div className="bg-sage rounded-2xl p-10 md:p-14">
-              <div className="text-6xl md:text-7xl font-display font-bold text-primary/30 mb-4">B</div>
-              <p className="text-lg font-display italic text-foreground">"Meu papel é te ajudar a encontrar equilíbrio, sem sofrimento."</p>
+            <div className="relative w-full max-w-[26rem]">
+              <div className="absolute -inset-3 bg-accent rounded-[1.75rem] -rotate-2" />
+              <div className="relative rounded-2xl overflow-hidden shadow-lg">
+                <img
+                  src={aboutImg}
+                  alt="Bruna em consulta"
+                  className="w-full h-[32rem] object-cover object-center"
+                  loading="lazy"
+                />
+              </div>
             </div>
           </motion.div>
 
@@ -37,12 +46,12 @@ export default function AboutSection() {
             <p className="text-muted-foreground leading-relaxed mb-4">
               Sou a Bruna, nutricionista clínica apaixonada por ajudar pessoas a
               construírem uma relação saudável com a comida. Acredito que comer bem
-              não precisa ser complicado — precisa fazer sentido pra sua vida.
+              não precisa ser complicado, precisa fazer sentido pra sua vida.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-8">
-              Meu método é baseado em escuta, personalização e estratégias
-              práticas. Nada de listas proibidas, culpa ou sofrimento. Aqui, você
-              é acolhida do jeito que é.
+              Meu método é baseado em escuta, personalização e estratégias práticas.
+              Nada de listas proibidas, culpa ou sofrimento. Aqui, você é acolhida
+              do jeito que é.
             </p>
 
             <div className="space-y-4">
