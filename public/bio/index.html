@@ -37,12 +37,7 @@
 
   <section class="intro shell"><div><p class="section-label">Comece por aqui</p><h2>Escolha como a Bruna pode acompanhar você</h2></div><p>Mais do que uma lista de links: um espaço para você entender cada proposta e tomar uma decisão com segurança.</p></section>
 
-  <section class="services shell" id="servicos">
-    <a class="service-card service-card-1 wa-link" href="#"><div class="service-topline"><span class="badge">Mais procurado</span></div><p class="eyebrow">Atendimento individual</p><h3>Consulta Nutricional</h3><p class="service-description">Uma avaliação completa para transformar seus objetivos em uma estratégia alimentar possível, personalizada e sustentável.</p><span class="service-link">Conhecer o acompanhamento ↗</span></a>
-    <a class="service-card service-card-2 wa-link" href="#"><div class="service-topline"><span class="badge">Nova turma em breve</span></div><p class="eyebrow">Experiência em grupo</p><h3>Grupo META</h3><p class="service-description">Uma jornada guiada para desenvolver consciência alimentar, organização e autonomia — sem radicalismos.</p><span class="service-link">Entrar na lista de interesse ↗</span></a>
-    <a class="service-card service-card-3 wa-link" href="#"><p class="eyebrow">Acompanhamento contínuo</p><h3>Programa Premium</h3><p class="service-description">Para quem deseja suporte próximo, revisão de estratégias e acompanhamento estruturado ao longo do processo.</p><span class="service-link">Ver como funciona ↗</span></a>
-    <a class="service-card service-card-4" href="#conteudos"><p class="eyebrow">Conteúdo gratuito</p><h3>Materiais e aulas</h3><p class="service-description">Guias, aulas e conteúdos práticos para ajudar você a cuidar da alimentação com mais clareza e menos culpa.</p><span class="service-link">Acessar conteúdos ↗</span></a>
-  </section>
+  <section class="services shell" id="servicos" aria-label="Serviços da Bruna"></section>
 
   <section class="feature shell"><div class="feature-image"><img src="assets/bruna-mesa.jpg" alt="Bruna Azeredo em atendimento online"/></div><div class="feature-copy"><p class="section-label">Atendimento individual</p><h2>Um plano alimentar não precisa ignorar a sua realidade.</h2><p>O acompanhamento considera rotina, preferências, saúde, comportamento alimentar e objetivos para construir mudanças consistentes.</p><ul><li>◉ Estratégia alimentar personalizada</li><li>◉ Acompanhamento da sua evolução</li><li>◉ Orientação clara e acolhedora</li></ul><a class="text-cta wa-link" href="#">Quero saber qual plano é para mim ↗</a></div></section>
 
@@ -56,6 +51,23 @@
 
   <a class="floating-whatsapp wa-link" href="#" aria-label="Falar com Bruna pelo WhatsApp"><svg class="i" viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 21l2.1-5.2A8.5 8.5 0 1 1 21 11.5Z"/></svg></a>
 </main>
+
+<div class="service-modal" id="service-modal" hidden>
+  <div class="service-modal-backdrop" data-close-modal></div>
+  <article class="service-dialog" role="dialog" aria-modal="true" aria-labelledby="service-modal-title" tabindex="-1">
+    <header class="service-dialog-header">
+      <div>
+        <p class="section-label" id="service-modal-category"></p>
+        <h2 id="service-modal-title"></h2>
+        <p class="service-dialog-subtitle" id="service-modal-subtitle"></p>
+      </div>
+      <button class="modal-close" type="button" data-close-modal aria-label="Fechar detalhes">×</button>
+    </header>
+    <div class="service-dialog-body" id="service-modal-body"></div>
+    <footer class="service-dialog-actions" id="service-modal-actions"></footer>
+  </article>
+</div>
+
 <script>
   const CONFIG = {
     whatsapp: '5521988730072',
@@ -64,6 +76,558 @@
   const wa = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(CONFIG.mensagem)}`;
   document.querySelectorAll('.wa-link').forEach(a => { a.href = wa; a.target = '_blank'; a.rel = 'noreferrer'; });
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  const serviceSettings = {
+    grupoMeta: {
+      status: 'coming-soon',
+      startDate: 'Data a definir',
+      duration: '15 dias',
+      seats: 'Vagas limitadas',
+      price: 'Valor a definir',
+      signupDeadline: 'Prazo a definir',
+      signupLink: 'WHATSAPP_URL',
+      paymentLink: '#'
+    }
+  };
+
+  const services = [
+    {
+      id: 'consulta',
+      cardClass: 'service-card-1',
+      category: 'Atendimento individual',
+      title: 'Consulta Nutricional',
+      shortDescription: 'Uma avaliação completa para transformar seus objetivos em uma estratégia alimentar possível, personalizada e sustentável.',
+      fullDescription: 'Uma avaliação completa para transformar seus objetivos, rotina, sintomas e condições clínicas em uma estratégia alimentar personalizada e possível de seguir.',
+      badge: 'Mais procurado',
+      status: 'available',
+      linkLabel: 'Conhecer os planos',
+      sections: [
+        {
+          title: 'Para quem é',
+          description: 'Indicado para pessoas que:',
+          items: [
+            'desejam emagrecer com acompanhamento profissional',
+            'querem melhorar glicemia, colesterol, triglicerídeos, pressão arterial e outros indicadores',
+            'apresentam diabetes, hipertensão, resistência à insulina ou obesidade',
+            'possuem alterações gastrointestinais',
+            'desejam melhorar a relação com a comida',
+            'estão em uso de medicamentos para emagrecimento',
+            'precisam organizar a alimentação de acordo com sua rotina',
+            'buscam melhorar sintomas, disposição e qualidade de vida'
+          ]
+        },
+        {
+          title: 'O que está incluído',
+          items: [
+            'avaliação nutricional completa',
+            'análise da rotina e dos hábitos alimentares',
+            'avaliação dos objetivos e necessidades individuais',
+            'análise de exames laboratoriais disponíveis',
+            'plano alimentar personalizado',
+            'orientações nutricionais individualizadas',
+            'definição de metas',
+            'acesso ao aplicativo',
+            'registro e acompanhamento da evolução',
+            'acesso ao plano, metas e orientações pelo aplicativo',
+            'chat ilimitado durante o período contratado',
+            'ajustes da estratégia conforme a evolução',
+            'consultas de acompanhamento conforme o pacote escolhido'
+          ]
+        },
+        {
+          title: 'Como funciona',
+          description: 'Cada consulta de acompanhamento é um novo encontro completo. Nela, a Bruna avalia a evolução, identifica dificuldades, analisa resultados e realiza os ajustes necessários na estratégia nutricional.'
+        },
+        {
+          title: 'Opções de acompanhamento',
+          cards: [
+            {
+              title: 'Pacote com 2 consultas',
+              items: [
+                '1 consulta inicial',
+                '1 consulta de acompanhamento',
+                'chat ilimitado durante o período contratado',
+                'acesso ao aplicativo',
+                'plano alimentar personalizado',
+                'acompanhamento da evolução'
+              ]
+            },
+            {
+              title: 'Pacote com 6 consultas',
+              items: [
+                '1 consulta inicial',
+                '5 consultas de acompanhamento',
+                'chat ilimitado durante o período contratado',
+                'acesso ao aplicativo',
+                'plano alimentar personalizado',
+                'acompanhamento contínuo',
+                'ajustes progressivos ao longo do processo'
+              ]
+            }
+          ]
+        }
+      ],
+      actions: [
+        { label: 'Conhecer os planos', href: 'WHATSAPP_URL', type: 'primary' },
+        { label: 'Falar com a Bruna', href: 'WHATSAPP_URL', type: 'secondary' }
+      ]
+    },
+    {
+      id: 'grupo-meta',
+      cardClass: 'service-card-2',
+      category: 'Experiência em grupo',
+      title: 'Grupo META',
+      subtitle: 'Uma experiência guiada de 15 dias para desenvolver consciência alimentar, organização e autonomia.',
+      shortDescription: 'Uma jornada guiada para desenvolver consciência alimentar, organização e autonomia — sem radicalismos.',
+      fullDescription: 'O Grupo META é uma jornada coletiva conduzida pela Bruna, com orientações práticas e atividades voltadas ao comportamento alimentar.',
+      badge: 'Nova turma em breve',
+      status: serviceSettings.grupoMeta.status,
+      linkLabel: serviceSettings.grupoMeta.status === 'open' ? 'Quero participar' : 'Entrar na lista de espera',
+      sections: [
+        {
+          title: 'Para quem é',
+          description: 'Indicado para quem:',
+          items: [
+            'sente dificuldade para manter uma rotina alimentar',
+            'vive alternando entre restrição e exagero',
+            'quer entender melhor os próprios comportamentos',
+            'deseja desenvolver mais consciência alimentar',
+            'busca apoio para sair do ciclo de culpa e compensação',
+            'quer começar uma mudança com orientação profissional',
+            'prefere aprender e evoluir em grupo'
+          ]
+        },
+        {
+          title: 'O que está incluído',
+          items: [
+            '15 dias de acompanhamento em grupo',
+            'acesso ao grupo exclusivo',
+            'orientações diárias',
+            'atividades práticas',
+            'desafios comportamentais',
+            'exercícios de consciência alimentar',
+            'conteúdos educativos',
+            'ferramentas de organização da rotina',
+            'apoio da nutricionista dentro da proposta do grupo',
+            'materiais complementares',
+            'encontro ou aula online, quando previsto',
+            'espaço para dúvidas gerais relacionadas ao conteúdo',
+            'acesso ao conteúdo durante o período definido'
+          ]
+        },
+        {
+          title: 'Como funciona',
+          description: 'É uma experiência coletiva e educativa. Ela não substitui consulta nutricional individual, diagnóstico ou acompanhamento clínico personalizado.'
+        },
+        {
+          title: 'Informações da turma',
+          details: [
+            ['Status', 'Nova turma em breve'],
+            ['Data de início', serviceSettings.grupoMeta.startDate],
+            ['Duração', serviceSettings.grupoMeta.duration],
+            ['Vagas', serviceSettings.grupoMeta.seats],
+            ['Valor', serviceSettings.grupoMeta.price],
+            ['Prazo de inscrição', serviceSettings.grupoMeta.signupDeadline]
+          ]
+        }
+      ],
+      note: 'O Grupo META é uma experiência coletiva e educativa. Ele não substitui consulta nutricional individual, diagnóstico ou acompanhamento clínico personalizado.',
+      actions: [
+        { label: serviceSettings.grupoMeta.status === 'open' ? 'Quero participar' : 'Entrar na lista de espera', href: serviceSettings.grupoMeta.signupLink, type: 'primary' }
+      ]
+    },
+    {
+      id: 'programa-meta',
+      cardClass: 'service-card-3',
+      category: 'Acompanhamento contínuo',
+      title: 'Programa META',
+      subtitle: 'Um acompanhamento estruturado para quem precisa de continuidade, estratégia e suporte mais próximo.',
+      shortDescription: 'Para quem deseja suporte próximo, revisão de estratégias e acompanhamento estruturado ao longo do processo.',
+      fullDescription: 'O Programa META é um acompanhamento mais longo, estruturado e com maior profundidade. Diferente do Grupo META, ele é pensado para continuidade, revisão e ajuste da estratégia ao longo do processo.',
+      status: 'available',
+      linkLabel: 'Conhecer o Programa META',
+      sections: [
+        {
+          title: 'Para quem é',
+          description: 'Indicado para quem:',
+          items: [
+            'já tentou mudar a alimentação várias vezes',
+            'precisa de acompanhamento contínuo',
+            'deseja emagrecer com estratégia',
+            'precisa melhorar exames e indicadores de saúde',
+            'apresenta dificuldades de adesão',
+            'deseja construir novos hábitos',
+            'busca suporte profissional durante um período maior',
+            'quer revisar e ajustar a estratégia ao longo do processo'
+          ]
+        },
+        {
+          title: 'O que está incluído',
+          items: [
+            'consulta inicial',
+            'consultas de acompanhamento',
+            'número de consultas definido conforme o pacote',
+            'plano alimentar personalizado',
+            'acesso ao aplicativo',
+            'chat ilimitado durante o programa',
+            'acompanhamento da evolução',
+            'análise de exames',
+            'definição de metas',
+            'revisões periódicas',
+            'ajustes no plano alimentar',
+            'estratégias comportamentais',
+            'materiais de apoio',
+            'acompanhamento de sintomas e dificuldades',
+            'suporte entre as consultas'
+          ]
+        },
+        {
+          title: 'Como funciona',
+          description: 'Grupo META é uma experiência coletiva de 15 dias. Programa META é acompanhamento contínuo e estruturado, com consultas, plano personalizado, aplicativo, chat e ajustes conforme a evolução.'
+        },
+        {
+          title: 'Versões sugeridas',
+          cards: [
+            {
+              title: 'Programa META Essencial',
+              items: [
+                '2 consultas',
+                'aplicativo',
+                'plano personalizado',
+                'chat',
+                'acompanhamento da evolução'
+              ]
+            },
+            {
+              title: 'Programa META Completo',
+              items: [
+                '6 consultas',
+                'aplicativo',
+                'plano personalizado',
+                'chat',
+                'revisões e ajustes',
+                'acompanhamento contínuo'
+              ]
+            }
+          ]
+        }
+      ],
+      actions: [
+        { label: 'Conhecer o Programa META', href: 'WHATSAPP_URL', type: 'primary' },
+        { label: 'Falar com a Bruna', href: 'WHATSAPP_URL', type: 'secondary' }
+      ]
+    },
+    {
+      id: 'materiais-aulas',
+      cardClass: 'service-card-5',
+      category: 'Educação e saúde',
+      title: 'Palestras e Treinamentos',
+      shortDescription: 'Educação nutricional para empresas, escolas, igrejas e instituições.',
+      fullDescription: 'A Bruna desenvolve encontros educativos adaptados ao perfil, à faixa etária e aos objetivos de cada público, com linguagem acessível, conteúdo prático e aplicação no dia a dia.',
+      status: 'available',
+      linkLabel: 'Solicitar uma proposta',
+      sections: [
+        {
+          title: 'Para quem é',
+          items: [
+            'empresas',
+            'escolas',
+            'igrejas',
+            'universidades',
+            'academias',
+            'clínicas e consultórios',
+            'hospitais',
+            'condomínios',
+            'associações',
+            'organizações sociais',
+            'grupos de mulheres',
+            'grupos de idosos',
+            'equipes esportivas',
+            'eventos corporativos',
+            'semanas internas de prevenção de acidentes',
+            'programas de qualidade de vida',
+            'campanhas de saúde',
+            'congressos, workshops e encontros comunitários'
+          ]
+        },
+        {
+          title: 'Formatos disponíveis',
+          items: [
+            'palestra presencial',
+            'palestra online',
+            'workshop prático',
+            'roda de conversa',
+            'treinamento para equipes',
+            'programa de educação nutricional',
+            'encontro único',
+            'ciclo de encontros',
+            'ação temática',
+            'participação em eventos',
+            'conteúdo personalizado para campanhas internas'
+          ]
+        },
+        {
+          title: 'Temas possíveis',
+          items: [
+            'alimentação saudável na rotina',
+            'comportamento alimentar',
+            'fome emocional',
+            'relação com a comida',
+            'prevenção de doenças crônicas',
+            'saúde da mulher',
+            'alimentação e produtividade',
+            'nutrição no ambiente de trabalho',
+            'alimentação infantil',
+            'lancheira escolar',
+            'obesidade infantil',
+            'leitura de rótulos',
+            'organização alimentar',
+            'escolhas alimentares fora de casa',
+            'diabetes e hipertensão',
+            'saúde metabólica',
+            'alimentação no uso de medicamentos para emagrecimento',
+            'nutrição e envelhecimento',
+            'alimentação consciente',
+            'mitos e verdades sobre alimentação',
+            'planejamento de refeições',
+            'alimentação e bem-estar emocional'
+          ]
+        },
+        {
+          title: 'O que pode estar incluído',
+          items: [
+            'reunião inicial para entendimento da necessidade',
+            'definição do público',
+            'construção de conteúdo personalizado',
+            'apresentação presencial ou online',
+            'material de apoio',
+            'slides',
+            'e-book ou guia digital',
+            'perguntas e respostas',
+            'dinâmica ou atividade prática',
+            'certificado de participação, quando aplicável',
+            'formulário de avaliação',
+            'proposta para continuidade',
+            'relatório resumido da ação, quando contratado'
+          ]
+        },
+        {
+          title: 'Diferenciais',
+          description: 'O conteúdo não será uma palestra genérica reaproveitada. Cada encontro poderá ser adaptado ao perfil da instituição, ao tempo disponível, ao número de participantes e aos objetivos da ação.'
+        }
+      ],
+      proposalFields: [
+        'nome da instituição',
+        'tipo de organização',
+        'nome do responsável',
+        'telefone',
+        'e-mail',
+        'quantidade estimada de participantes',
+        'faixa etária',
+        'formato presencial ou online',
+        'cidade',
+        'data estimada',
+        'duração desejada',
+        'tema de interesse',
+        'objetivo do evento',
+        'observações'
+      ],
+      actions: [
+        { label: 'Solicitar uma proposta', href: 'WHATSAPP_URL', type: 'primary' },
+        { label: 'Falar com a Bruna', href: 'WHATSAPP_URL', type: 'secondary' }
+      ]
+    },
+    {
+      id: 'materiais-aulas',
+      cardClass: 'service-card-4 service-card-wide',
+      category: 'Conteúdo gratuito',
+      title: 'Materiais e Aulas',
+      shortDescription: 'Guias, aulas e conteúdos práticos para ajudar você a cuidar da alimentação com mais clareza e menos culpa.',
+      fullDescription: 'Conteúdos desenvolvidos pela Bruna para ajudar o paciente a compreender melhor sua alimentação, organizar a rotina e aplicar estratégias práticas no dia a dia.',
+      status: 'coming-soon',
+      linkLabel: 'Ver materiais',
+      sections: [
+        {
+          title: 'Conteúdos possíveis',
+          items: [
+            'e-books',
+            'guias',
+            'checklists',
+            'aulas gravadas',
+            'workshops',
+            'encontros online',
+            'materiais sobre comportamento alimentar',
+            'materiais sobre organização alimentar',
+            'listas de compras',
+            'receitas',
+            'conteúdos para pacientes em uso de GLP-1',
+            'materiais sobre exames e saúde metabólica',
+            'aulas sobre fome, saciedade e escolhas alimentares'
+          ]
+        }
+      ],
+      materials: [
+        { title: 'Guia de Organização Alimentar', description: 'Checklist prático para planejar refeições com mais clareza.', type: 'Guia', status: 'Em breve', action: 'Quero ser avisado', href: 'WHATSAPP_URL' },
+        { title: 'Aula Fome, Saciedade e Escolhas', description: 'Conteúdo educativo para entender sinais do corpo no dia a dia.', type: 'Aula gravada', status: 'Em breve', duration: 'A definir', action: 'Quero ser avisado', href: 'WHATSAPP_URL' },
+        { title: 'Lista de Compras Inteligente', description: 'Material de apoio para facilitar a rotina alimentar.', type: 'Checklist', status: 'Gratuito', action: 'Acessar material', href: 'WHATSAPP_URL' }
+      ],
+      actions: [
+        { label: 'Quero ser avisado', href: 'WHATSAPP_URL', type: 'primary' },
+        { label: 'Falar com a Bruna', href: 'WHATSAPP_URL', type: 'secondary' }
+      ]
+    }
+  ];
+
+  const servicesContainer = document.getElementById('servicos');
+  const modal = document.getElementById('service-modal');
+  const dialog = modal.querySelector('.service-dialog');
+  const modalCategory = document.getElementById('service-modal-category');
+  const modalTitle = document.getElementById('service-modal-title');
+  const modalSubtitle = document.getElementById('service-modal-subtitle');
+  const modalBody = document.getElementById('service-modal-body');
+  const modalActions = document.getElementById('service-modal-actions');
+  let lastFocusedElement = null;
+
+  const resolveHref = (href) => href === 'WHATSAPP_URL' ? wa : href;
+
+  function renderServices() {
+    servicesContainer.innerHTML = services.map((service) => `
+      <button class="service-card ${service.cardClass}" type="button" data-service-id="${service.id}" aria-haspopup="dialog">
+        <div class="service-topline">${service.badge ? `<span class="badge">${service.badge}</span>` : ''}</div>
+        <p class="eyebrow">${service.category}</p>
+        <h3>${service.title}</h3>
+        <p class="service-description">${service.shortDescription}</p>
+        <span class="service-link">${service.linkLabel} ↗</span>
+      </button>
+    `).join('');
+  }
+
+  function renderSection(section) {
+    const description = section.description ? `<p>${section.description}</p>` : '';
+    const items = section.items ? `<ul>${section.items.map(item => `<li>${item}</li>`).join('')}</ul>` : '';
+    const details = section.details ? `
+      <dl class="detail-list">
+        ${section.details.map(([label, value]) => `<div><dt>${label}</dt><dd>${value}</dd></div>`).join('')}
+      </dl>
+    ` : '';
+    const cards = section.cards ? `
+      <div class="option-grid">
+        ${section.cards.map(card => `
+          <div class="option-card">
+            <h4>${card.title}</h4>
+            <ul>${card.items.map(item => `<li>${item}</li>`).join('')}</ul>
+          </div>
+        `).join('')}
+      </div>
+    ` : '';
+
+    return `<section class="modal-section"><h3>${section.title}</h3>${description}${items}${details}${cards}</section>`;
+  }
+
+  function renderMaterials(materials) {
+    if (!materials) return '';
+    return `
+      <section class="modal-section">
+        <h3>Materiais disponíveis</h3>
+        <div class="materials-grid">
+          ${materials.map(material => `
+            <article class="material-item">
+              <div class="material-cover"></div>
+              <div>
+                <span>${material.type}${material.duration ? ` • ${material.duration}` : ''}</span>
+                <h4>${material.title}</h4>
+                <p>${material.description}</p>
+                <small>${material.status}</small>
+                <a href="${resolveHref(material.href)}" target="_blank" rel="noreferrer">${material.action}</a>
+              </div>
+            </article>
+          `).join('')}
+        </div>
+      </section>
+    `;
+  }
+
+  function renderProposalFields(fields) {
+    if (!fields) return '';
+    return `
+      <section class="modal-section">
+        <h3>Solicitação de proposta</h3>
+        <p>Para montar uma proposta personalizada, a Bruna poderá solicitar estas informações:</p>
+        <div class="proposal-grid">
+          ${fields.map(field => `<span>${field}</span>`).join('')}
+        </div>
+      </section>
+    `;
+  }
+
+  function openServiceModal(serviceId) {
+    const service = services.find(item => item.id === serviceId);
+    if (!service) return;
+
+    lastFocusedElement = document.activeElement;
+    modalCategory.textContent = service.category;
+    modalTitle.textContent = service.title;
+    modalSubtitle.textContent = service.subtitle || service.fullDescription;
+    modalBody.innerHTML = `
+      <p class="modal-description">${service.fullDescription}</p>
+      ${service.sections.map(renderSection).join('')}
+      ${service.note ? `<p class="modal-note">${service.note}</p>` : ''}
+      ${renderProposalFields(service.proposalFields)}
+      ${renderMaterials(service.materials)}
+    `;
+    modalActions.innerHTML = service.actions.map(action => `
+      <a class="modal-action modal-action-${action.type}" href="${resolveHref(action.href)}" target="_blank" rel="noreferrer">${action.label}</a>
+    `).join('');
+
+    modal.hidden = false;
+    document.body.classList.add('modal-open');
+    requestAnimationFrame(() => {
+      modal.classList.add('is-open');
+      dialog.focus();
+    });
+  }
+
+  function closeServiceModal() {
+    modal.classList.remove('is-open');
+    document.body.classList.remove('modal-open');
+    setTimeout(() => {
+      modal.hidden = true;
+      modalBody.innerHTML = '';
+      modalActions.innerHTML = '';
+      if (lastFocusedElement) lastFocusedElement.focus();
+    }, 180);
+  }
+
+  function trapFocus(event) {
+    if (event.key !== 'Tab' || modal.hidden) return;
+    const focusable = modal.querySelectorAll('a[href], button, [tabindex]:not([tabindex="-1"])');
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (!first || !last) return;
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  }
+
+  renderServices();
+
+  servicesContainer.addEventListener('click', (event) => {
+    const card = event.target.closest('[data-service-id]');
+    if (card) openServiceModal(card.dataset.serviceId);
+  });
+
+  modal.addEventListener('click', (event) => {
+    if (event.target.matches('[data-close-modal]')) closeServiceModal();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !modal.hidden) closeServiceModal();
+    trapFocus(event);
+  });
 </script>
 </body>
 </html>
