@@ -49,8 +49,8 @@ h1 em { color: var(--clay); font-weight: 600; }
 .trust-row span { display: flex; align-items: center; gap: 6px; }
 .hero-photo-wrap { align-self: end; height: 650px; display: flex; align-items: flex-end; justify-content: center; }
 .hero-photo-card { width: min(100%, 500px); height: 625px; overflow: hidden; position: relative; border-radius: 220px 220px 0 0; background: #d5dbc9; box-shadow: 0 28px 70px rgba(36,51,40,.13); }
-.hero-photo-card img { height: 100%; object-fit: cover; object-position: 50% 52%; }
-.photo-note { position: absolute; left: 24px; bottom: 25px; right: 24px; padding: 14px 17px; border-radius: 18px; background: rgba(252,251,247,.82); backdrop-filter: blur(14px); display: flex; align-items: center; gap: 9px; font-size: 13px; font-weight: 700; color: var(--clay); }
+.hero-photo-card img { width: 112%; max-width: none; height: 112%; object-fit: cover; object-position: 50% 34%; transform: translateX(-5%); }
+.photo-note { position: absolute; left: 24px; bottom: 25px; right: 24px; padding: 14px 17px; border-radius: 18px; background: rgba(252,251,247,.82); backdrop-filter: blur(14px); display: flex; align-items: center; gap: 9px; font-size: 13px; font-weight: 700; color: #fff; }
 .photo-note span { color: var(--ink); }
 
 .intro { display: grid; grid-template-columns: 1.1fr .9fr; gap: 80px; padding: 110px 0 48px; align-items: end; }
@@ -65,8 +65,7 @@ h1 em { color: var(--clay); font-weight: 600; }
 .service-card-2 { background: #e4e9dc; }
 .service-card-3 { background: #efe4da; }
 .service-card-4 { background: #f7f5ef; }
-.service-topline { display: flex; justify-content: space-between; align-items: center; margin-bottom: 42px; }
-.service-icon { width: 44px; height: 44px; border-radius: 14px; background: rgba(255,255,255,.65); display: grid; place-items: center; }
+.service-topline { display: flex; justify-content: flex-end; align-items: center; margin-bottom: 42px; }
 .badge { padding: 7px 10px; border-radius: 999px; background: rgba(255,255,255,.62); font-size: 10px; text-transform: uppercase; letter-spacing: .11em; font-weight: 700; }
 .service-card h3 { font-family: 'Playfair Display', serif; font-size: 34px; letter-spacing: -.025em; margin: 8px 0 12px; }
 .service-description { color: var(--muted); line-height: 1.65; max-width: 580px; }
@@ -109,7 +108,7 @@ footer { padding-bottom: 36px; }
   h1 { font-size: clamp(48px, 13vw, 72px); }
   .hero-photo-wrap { order: 2; height: 520px; margin-top: 34px; }
   .hero-photo-card { height: 505px; max-width: 430px; }
-  .hero-photo-card img { object-position: 50% 60%; }
+  .hero-photo-card img { width: 116%; height: 116%; object-position: 50% 30%; transform: translateX(-8%); }
   .intro, .feature, .content-card { grid-template-columns: 1fr; }
   .intro { gap: 22px; padding-top: 85px; }
   .feature { gap: 36px; }
