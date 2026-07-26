@@ -49,7 +49,7 @@ h1 em { color: var(--clay); font-weight: 600; }
 .trust-row span { display: flex; align-items: center; gap: 6px; }
 .hero-photo-wrap { align-self: end; height: 650px; display: flex; align-items: flex-end; justify-content: center; }
 .hero-photo-card { width: min(100%, 500px); height: 625px; overflow: hidden; position: relative; border-radius: 220px 220px 0 0; background: #d5dbc9; box-shadow: 0 28px 70px rgba(36,51,40,.13); }
-.hero-photo-card img { height: 100%; object-fit: cover; object-position: 50% 27%; }
+.hero-photo-card img { height: 100%; object-fit: cover; object-position: 50% 45%; }
 .photo-note { position: absolute; left: 24px; bottom: 25px; right: 24px; padding: 14px 17px; border-radius: 18px; background: rgba(252,251,247,.82); backdrop-filter: blur(14px); display: flex; align-items: center; gap: 9px; font-size: 13px; font-weight: 700; color: var(--clay); }
 .photo-note span { color: var(--ink); }
 
