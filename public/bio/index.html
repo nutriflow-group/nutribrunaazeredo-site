@@ -43,7 +43,7 @@
 
   <section class="quote shell"><div class="quote-card"><p>“Meu papel não é colocar sua vida dentro de uma dieta. É construir uma estratégia alimentar que funcione dentro da sua vida.”</p><span>Bruna Azeredo</span></div></section>
 
-  <section class="content-card shell" id="conteudos"><div class="content-copy"><p class="section-label">Conteúdos e experiências</p><h2>Conhecimento também faz parte do cuidado.</h2><p>Receba novidades sobre grupos, aulas, materiais e novas vagas de acompanhamento.</p><a class="button button-primary" href="https://app.nudiet.com.br/c/nudiet-425182" target="_blank" rel="noreferrer">Entrar na lista de novidades ›</a></div><div class="content-image"><img src="assets/bruna-livro.jpg" alt="Bruna Azeredo lendo sobre comportamento alimentar"/></div></section>
+  <section class="content-card shell" id="conteudos"><div class="content-copy"><p class="section-label">Conteúdos e experiências</p><h2>Conhecimento também faz parte do cuidado.</h2><p>Receba novidades sobre grupos, aulas, materiais e novas vagas de acompanhamento.</p><a id="novidades-link" class="button button-primary" href="https://app.nudiet.com.br/c/nudiet-425182" target="_blank" rel="noreferrer">Entrar na lista de novidades ›</a></div><div class="content-image"><img src="assets/bruna-livro.jpg" alt="Bruna Azeredo lendo sobre comportamento alimentar"/></div></section>
 
   <section class="final-cta shell"><div><p class="section-label">Ainda em dúvida?</p><h2>Conte o que você está buscando.</h2><p>A Bruna orienta você sobre o formato de acompanhamento mais adequado para o seu momento.</p></div><a class="button button-light wa-link" href="#">Conversar no WhatsApp</a></section>
 
@@ -75,6 +75,7 @@
   };
   const wa = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(CONFIG.mensagem)}`;
   document.querySelectorAll('.wa-link').forEach(a => { a.href = wa; a.target = '_blank'; a.rel = 'noreferrer'; });
+  document.getElementById('novidades-link').href = 'https://app.nudiet.com.br/c/nudiet-425182';
   document.getElementById('year').textContent = new Date().getFullYear();
 
   const serviceSettings = {
