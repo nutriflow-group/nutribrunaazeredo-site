@@ -11,11 +11,11 @@ export default function Footer() {
         <p className="font-display text-lg font-semibold text-foreground flex items-center gap-2">
           <img
             src={logoImg}
-            alt="Logo Bruna Nutricionista"
+            alt="Logo Ecosistema da Nutri"
             className="h-7 w-7 object-contain mix-blend-multiply"
           />
           <span>
-            Bruna <span className="text-primary">Nutricionista</span>
+            Ecosistema <span className="text-primary">da Nutri</span>
           </span>
         </p>
         <div className="flex items-center gap-5">
@@ -43,7 +43,7 @@ export default function Footer() {
           021 98873-0072
         </a>
         <p className="text-xs text-muted-foreground">
-          © {new Date().getFullYear()} Bruna Nutricionista. Todos os direitos reservados.
+          © {new Date().getFullYear()} Ecosistema da Nutri. Todos os direitos reservados.
         </p>
       </div>
     </footer>

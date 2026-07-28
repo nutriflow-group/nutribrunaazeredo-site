@@ -23,11 +23,11 @@ export default function Navbar() {
         <a href="#" className="flex items-center gap-2 font-display text-xl font-semibold text-foreground">
           <img
             src={logoImg}
-            alt="Logo Bruna Nutricionista"
+            alt="Logo Ecosistema da Nutri"
             className="h-8 w-8 object-contain mix-blend-multiply"
           />
           <span>
-            Bruna <span className="text-primary">Nutricionista</span>
+            Ecosistema <span className="text-primary">da Nutri</span>
           </span>
         </a>
 
