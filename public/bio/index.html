@@ -73,9 +73,16 @@
     whatsapp: '5521988730072',
     mensagem: 'Olá, Bruna! Vim pelo Instagram e gostaria de conhecer seus acompanhamentos.'
   };
+  const NOVIDADES_URL = 'https://app.nudiet.com.br/c/nudiet-425182';
   const wa = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(CONFIG.mensagem)}`;
   document.querySelectorAll('.wa-link').forEach(a => { a.href = wa; a.target = '_blank'; a.rel = 'noreferrer'; });
-  document.getElementById('novidades-link').href = 'https://app.nudiet.com.br/c/nudiet-425182';
+  const novidadesLink = document.getElementById('novidades-link');
+  novidadesLink.href = NOVIDADES_URL;
+  novidadesLink.addEventListener('click', (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    window.location.href = NOVIDADES_URL;
+  }, true);
   document.getElementById('year').textContent = new Date().getFullYear();
 
   const serviceSettings = {
