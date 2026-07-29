@@ -31,7 +31,7 @@ const pains = [
 
 export default function PainSection() {
   return (
-    <section className="relative z-20 -mt-32 pb-10 text-primary-foreground">
+    <section className="relative z-20 -mt-24 pb-10 text-primary-foreground md:-mt-32">
       <div className="container">
         <div className="grid overflow-hidden rounded-2xl border border-white/10 bg-primary shadow-sm md:grid-cols-5">
           {pains.map((pain, index) => (

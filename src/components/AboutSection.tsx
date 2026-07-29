@@ -12,7 +12,7 @@ const stats = [
 
 export default function AboutSection() {
   return (
-    <section id="sobre" className="relative min-h-[640px] scroll-mt-[72px] overflow-hidden py-12 lg:py-14">
+    <section id="sobre" className="relative min-h-[640px] scroll-mt-[72px] overflow-hidden py-16 lg:py-14">
       <img
         src={aboutBackground}
         alt=""
@@ -32,7 +32,7 @@ export default function AboutSection() {
             <h2 className="editorial-title mb-5 text-[2.7rem] md:text-[3.45rem] lg:text-[3.55rem]">
               Nutrição vai muito <span className="italic text-primary">além</span> de números e calorias.
             </h2>
-            <div className="mb-6 flex items-center gap-3 text-accent">
+            <div className="mb-6 flex items-center gap-3 text-accent max-md:mt-1 max-md:max-w-[13rem]">
               <span className="h-px w-20 bg-current" />
               <span className="text-xl">⌁</span>
               <span className="h-px w-20 bg-current" />
