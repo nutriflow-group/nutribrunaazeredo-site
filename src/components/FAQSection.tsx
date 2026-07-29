@@ -31,37 +31,31 @@ const faqs = [
 
 export default function FAQSection() {
   return (
-    <section id="faq" className="py-20 bg-sage">
-      <div className="container max-w-2xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-14"
-        >
-          <span className="text-sm font-medium text-primary mb-3 block">Tire suas dúvidas</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-            Perguntas frequentes
-          </h2>
+    <section id="faq" className="section-pad bg-background">
+      <div className="container grid gap-10 lg:grid-cols-[0.78fr_1.12fr] lg:items-start">
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+          <span className="eyebrow mb-5 block">Tire suas dúvidas</span>
+          <h2 className="editorial-title max-w-md text-4xl md:text-6xl">Perguntas frequentes</h2>
+          <p className="mt-6 max-w-sm text-base leading-8 text-muted-foreground">
+            Antes da primeira consulta, é normal querer entender como funciona o cuidado, os retornos e o plano alimentar.
+          </p>
+          <div className="mt-8 max-w-sm rounded-lg bg-warm p-6">
+            <p className="font-display text-2xl leading-tight text-primary">Ainda ficou alguma dúvida?</p>
+            <p className="mt-3 text-sm leading-7 text-muted-foreground">
+              Fale com a Bruna pelo WhatsApp e receba uma orientação inicial.
+            </p>
+          </div>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <Accordion type="single" collapsible className="space-y-3">
-            {faqs.map((f, i) => (
-              <AccordionItem
-                key={i}
-                value={`faq-${i}`}
-                className="bg-card border border-border rounded-xl px-6 data-[state=open]:shadow-sm"
-              >
-                <AccordionTrigger className="text-left text-sm font-semibold text-foreground hover:no-underline py-5">
-                  {f.q}
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+          <Accordion type="single" collapsible className="space-y-4">
+            {faqs.map((faq, index) => (
+              <AccordionItem key={faq.q} value={`faq-${index}`} className="rounded-lg border border-accent/20 bg-card px-6 shadow-sm">
+                <AccordionTrigger className="py-5 text-left text-base font-bold text-foreground hover:no-underline">
+                  {faq.q}
                 </AccordionTrigger>
-                <AccordionContent className="text-sm text-muted-foreground leading-relaxed pb-5">
-                  {f.a}
+                <AccordionContent className="pb-5 text-sm leading-7 text-muted-foreground">
+                  {faq.a}
                 </AccordionContent>
               </AccordionItem>
             ))}

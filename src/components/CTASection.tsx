@@ -1,45 +1,37 @@
-﻿import { motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Calendar, MessageCircle } from "lucide-react";
-
-const WHATSAPP_MESSAGE = "Olá! Gostaria de agendar uma consulta.";
-const WHATSAPP_URL = `https://wa.me/5521988730072?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+import { WHATSAPP_URL } from "@/lib/links";
 
 export default function CTASection() {
   return (
-    <section className="py-20">
+    <section className="section-pad">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-primary rounded-2xl p-10 md:p-16 text-center"
+          className="grid gap-8 rounded-[2rem] bg-primary p-8 text-primary-foreground md:grid-cols-[1.1fr_0.9fr] md:items-end md:p-14"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
-            Pronta para começar sua transformação?
-          </h2>
-          <p className="text-primary-foreground/80 max-w-lg mx-auto mb-8">
-            Dê o primeiro passo rumo a uma vida mais leve, saudável e em paz com
-            a comida. Agende sua consulta agora.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary-foreground text-primary px-6 py-3.5 text-sm font-semibold hover:opacity-90 transition-opacity"
-            >
-              <Calendar size={18} />
-              Agendar consulta
-            </a>
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-primary-foreground text-primary-foreground px-6 py-3.5 text-sm font-semibold hover:bg-primary-foreground/10 transition-colors"
-            >
-              <MessageCircle size={18} />
-              Falar no WhatsApp
-            </a>
+          <div>
+            <span className="mb-5 block text-[11px] font-bold uppercase tracking-[0.22em] text-white/60">Próximo passo</span>
+            <h2 className="font-display text-4xl font-medium leading-tight md:text-6xl">
+              Pronta para começar sua transformação?
+            </h2>
+          </div>
+          <div>
+            <p className="mb-7 text-base leading-8 text-white/76">
+              Dê o primeiro passo rumo a uma vida mais leve, saudável e em paz com a comida. Agende sua consulta agora.
+            </p>
+            <div className="flex flex-col gap-4 sm:flex-row md:flex-col lg:flex-row">
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="primary-button bg-primary-foreground text-primary hover:bg-white">
+                <Calendar size={18} />
+                Agendar consulta
+              </a>
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="secondary-button border-white/30 text-primary-foreground hover:bg-white/10">
+                <MessageCircle size={18} />
+                Falar no WhatsApp
+              </a>
+            </div>
           </div>
         </motion.div>
       </div>

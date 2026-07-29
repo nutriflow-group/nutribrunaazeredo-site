@@ -1,7 +1,5 @@
-﻿import { MessageCircle } from "lucide-react";
-
-const WHATSAPP_MESSAGE = "Olá! Gostaria de agendar uma consulta.";
-const WHATSAPP_URL = `https://wa.me/5521988730072?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+import { MessageCircle } from "lucide-react";
+import { WHATSAPP_URL } from "@/lib/links";
 
 export default function WhatsAppFloat() {
   return (
@@ -9,7 +7,7 @@ export default function WhatsAppFloat() {
       href={WHATSAPP_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-lg hover:scale-105 transition-transform animate-float"
+      className="fixed bottom-6 right-6 z-50 grid h-14 w-14 place-items-center rounded-full bg-primary text-primary-foreground shadow-lg transition-transform hover:scale-105"
       aria-label="Falar no WhatsApp"
     >
       <MessageCircle size={26} />

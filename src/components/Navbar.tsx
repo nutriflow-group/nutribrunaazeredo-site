@@ -1,48 +1,46 @@
-﻿import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import logoImg from "@/assets/logo_1.jpg";
+import { WHATSAPP_URL } from "@/lib/links";
 
 const links = [
+  { href: "#inicio", label: "Inicio" },
   { href: "#sobre", label: "Sobre" },
-  { href: "#como-funciona", label: "Como funciona" },
-  { href: "#servicos", label: "Serviços" },
-  { href: "#depoimentos", label: "Depoimentos" },
-  { href: "#faq", label: "FAQ" },
+  { href: "#como-funciona", label: "Metodo" },
+  { href: "#servicos", label: "Servicos" },
+  { href: "#faq", label: "Conteudo" },
 ];
-
-const WHATSAPP_MESSAGE = "Olá! Gostaria de agendar uma consulta.";
-const WHATSAPP_URL = `https://wa.me/5521988730072?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <div className="container flex items-center justify-between h-16">
-        <a href="#" className="flex items-center gap-2 font-display text-xl font-semibold text-foreground">
-          <img
-            src={logoImg}
-            alt="Logo Ecosistema da Nutri"
-            className="h-8 w-8 object-contain mix-blend-multiply"
-          />
-          <span>
-            Ecosistema <span className="text-primary">da Nutri</span>
+    <nav className="fixed left-0 right-0 top-0 z-50 bg-background/88 backdrop-blur-xl">
+      <div className="container flex h-[72px] items-center justify-between">
+        <a href="#" className="flex items-center gap-3 text-foreground">
+          <span className="font-display text-4xl font-medium leading-none text-primary">BA</span>
+          <span className="flex flex-col leading-tight">
+            <strong className="text-[13px] font-bold uppercase tracking-[0.34em]">Bruna Azeredo</strong>
+            <small className="text-[11px] font-bold uppercase tracking-[0.2em] text-muted-foreground">Nutricionista</small>
           </span>
         </a>
 
-        <div className="hidden md:flex items-center gap-8">
-          {links.map((l) => (
-            <a key={l.href} href={l.href} className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
-              {l.label}
+        <div className="hidden items-center gap-8 lg:flex">
+          {links.map((link) => (
+            <a key={link.href} href={link.href} className="text-sm font-semibold text-muted-foreground transition-colors hover:text-primary">
+              {link.label}
             </a>
           ))}
-          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-lg bg-primary text-primary-foreground px-5 py-2.5 text-sm font-medium hover:opacity-90 transition-opacity">
+          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="primary-button min-h-11 px-5 text-xs">
             Agendar consulta
           </a>
         </div>
 
-        <button onClick={() => setOpen(!open)} className="md:hidden p-2 text-foreground" aria-label="Menu">
+        <button
+          onClick={() => setOpen((value) => !value)}
+          className="grid h-11 w-11 place-items-center rounded-full border border-primary/15 text-primary lg:hidden"
+          aria-label="Menu"
+        >
           {open ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
@@ -53,15 +51,15 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background border-b border-border overflow-hidden"
+            className="overflow-hidden border-b border-primary/10 bg-background lg:hidden"
           >
-            <div className="container py-4 flex flex-col gap-4">
-              {links.map((l) => (
-                <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
-                  {l.label}
+            <div className="container flex flex-col gap-4 py-4">
+              {links.map((link) => (
+                <a key={link.href} href={link.href} onClick={() => setOpen(false)} className="text-sm font-semibold text-muted-foreground transition-colors hover:text-primary">
+                  {link.label}
                 </a>
               ))}
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-lg bg-primary text-primary-foreground px-5 py-2.5 text-sm font-medium w-full">
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="primary-button w-full">
                 Agendar consulta
               </a>
             </div>

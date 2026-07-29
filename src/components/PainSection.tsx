@@ -1,75 +1,56 @@
 import { motion } from "framer-motion";
-import { Ban, TrendingDown, Brain } from "lucide-react";
+import { Heart, Leaf, Star, TrendingUp, UserRound } from "lucide-react";
 
 const pains = [
   {
-    icon: Ban,
-    title: "Dietas que não funcionam",
-    description: "Você já tentou várias dietas, perdeu peso e recuperou tudo de novo? Esse ciclo é frustrante e prejudica seu corpo.",
+    icon: UserRound,
+    title: "Atendimento personalizado",
+    description: "Cada plano é único, como você.",
   },
   {
-    icon: TrendingDown,
-    title: "Falta de constância",
-    description: "Começa motivada na segunda, mas na quarta já desistiu? O problema não é você — é o método.",
+    icon: Leaf,
+    title: "Abordagem integrativa",
+    description: "Corpo, mente e emoções em equilíbrio.",
   },
   {
-    icon: Brain,
-    title: "Comer emocional",
-    description: "Desconta na comida quando está ansiosa, triste ou estressada? Isso tem solução, e ela começa com acolhimento.",
+    icon: TrendingUp,
+    title: "Método exclusivo",
+    description: "Mais que dietas, um estilo de vida.",
+  },
+  {
+    icon: Heart,
+    title: "Acompanhamento contínuo",
+    description: "Você nunca estará sozinha.",
+  },
+  {
+    icon: Star,
+    title: "Resultados que transformam",
+    description: "Saúde, autoestima e liberdade alimentar.",
   },
 ];
 
-const container = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.15 } },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-};
-
 export default function PainSection() {
   return (
-    <section className="py-20 bg-warm">
+    <section className="relative z-20 -mt-32 pb-10 text-primary-foreground">
       <div className="container">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-14"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Você se identifica?
-          </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
-            Se você está cansada de lutar contra a balança, saiba que existe um
-            caminho diferente.
-          </p>
-        </motion.div>
-
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="grid md:grid-cols-3 gap-8"
-        >
-          {pains.map((p) => (
+        <div className="grid overflow-hidden rounded-2xl border border-white/10 bg-primary shadow-sm md:grid-cols-5">
+          {pains.map((pain, index) => (
             <motion.div
-              key={p.title}
-              variants={item}
-              className="bg-card rounded-xl p-8 shadow-sm border border-border"
+              key={pain.title}
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.08 }}
+              className="border-white/10 p-4 text-center md:border-r md:last:border-r-0"
             >
-              <div className="w-12 h-12 rounded-lg bg-accent flex items-center justify-center mb-5">
-                <p.icon size={22} className="text-primary" />
+              <div className="mx-auto mb-2 flex h-9 w-9 items-center justify-center rounded-full text-[#D9C9AE]">
+                <pain.icon size={27} strokeWidth={1.6} />
               </div>
-              <h3 className="text-lg font-semibold text-foreground mb-3">{p.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{p.description}</p>
+              <h3 className="mb-2 font-body text-[13px] font-bold uppercase leading-5 tracking-wide">{pain.title}</h3>
+              <p className="text-xs leading-5 text-white/78">{pain.description}</p>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
