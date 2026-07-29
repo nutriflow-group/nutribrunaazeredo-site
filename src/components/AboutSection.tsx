@@ -12,12 +12,12 @@ const stats = [
 
 export default function AboutSection() {
   return (
-    <section id="sobre" className="relative min-h-[640px] scroll-mt-[72px] overflow-hidden py-16 lg:py-14">
+    <section id="sobre" className="relative min-h-[640px] scroll-mt-[72px] overflow-hidden bg-background py-16 lg:py-14">
       <img
         src={aboutBackground}
         alt=""
         aria-hidden="true"
-        className="absolute inset-0 h-full w-full object-cover object-center"
+        className="absolute inset-0 hidden h-full w-full object-cover object-center md:block"
       />
 
       <div className="container relative z-10">
