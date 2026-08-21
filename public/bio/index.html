@@ -12,6 +12,7 @@
   <style>
     .i{width:1em;height:1em;display:inline-block;vertical-align:-.16em;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}.icon-button .i{width:19px;height:19px}.floating-whatsapp .i{width:22px;height:22px}
   </style>
+  <script src="reconecta-config.js"></script>
 </head>
 <body>
 <main>
@@ -85,16 +86,21 @@
   }, true);
   document.getElementById('year').textContent = new Date().getFullYear();
 
+  const RECONNECTA = window.RECONECTA_CONFIG;
   const serviceSettings = {
     grupoMeta: {
-      status: 'coming-soon',
+      status: 'open',
       startDate: 'Data a definir',
       duration: '15 dias',
       seats: 'Vagas limitadas',
-      price: 'Valor a definir',
+      price: RECONNECTA.price,
+      promoText: RECONNECTA.promoText,
       signupDeadline: 'Prazo a definir',
-      signupLink: 'https://app.nudiet.com.br/c/lista-de-espera-reconecta-810404',
-      paymentLink: '#'
+      signupLink: RECONNECTA.paymentUrl,
+      paymentLink: RECONNECTA.paymentUrl,
+      regularPaymentLink: RECONNECTA.regularPaymentUrl,
+      confirmationPath: RECONNECTA.confirmationPath,
+      whatsappGroupLink: RECONNECTA.whatsappGroupUrl
     }
   };
 
@@ -188,9 +194,11 @@
       subtitle: 'Uma experiência guiada de 15 dias para desenvolver consciência alimentar, organização e autonomia.',
       shortDescription: 'Uma jornada guiada para desenvolver consciência alimentar, organização e autonomia — sem radicalismos.',
       fullDescription: 'O Reconecta é uma jornada coletiva conduzida pela Bruna, com orientações práticas e atividades voltadas ao comportamento alimentar.',
-      badge: 'Nova turma em breve',
+      badge: 'Promoção de abertura',
       status: serviceSettings.grupoMeta.status,
       linkLabel: serviceSettings.grupoMeta.status === 'open' ? 'Quero participar' : 'Entrar na lista de espera',
+      investment: serviceSettings.grupoMeta.price,
+      promoText: serviceSettings.grupoMeta.promoText,
       sections: [
         {
           title: 'Para quem é',
@@ -230,7 +238,7 @@
         {
           title: 'Informações da turma',
           details: [
-            ['Status', 'Nova turma em breve'],
+            ['Status', 'Inscrições abertas'],
             ['Data de início', serviceSettings.grupoMeta.startDate],
             ['Duração', serviceSettings.grupoMeta.duration],
             ['Vagas', serviceSettings.grupoMeta.seats],
@@ -241,7 +249,7 @@
       ],
       note: 'O Reconecta é uma experiência coletiva e educativa. Ele não substitui consulta nutricional individual, diagnóstico ou acompanhamento clínico personalizado.',
       actions: [
-        { label: serviceSettings.grupoMeta.status === 'open' ? 'Quero participar' : 'Entrar na lista de espera', href: serviceSettings.grupoMeta.signupLink, type: 'primary' }
+        { label: serviceSettings.grupoMeta.status === 'open' ? 'Quero participar do Reconecta' : 'Entrar na lista de espera', href: serviceSettings.grupoMeta.paymentLink, type: 'primary' }
       ]
     },
     {
@@ -497,6 +505,13 @@
     modalSubtitle.textContent = service.subtitle || service.fullDescription;
     modalBody.innerHTML = `
       <p class="modal-description">${service.fullDescription}</p>
+      ${service.investment ? `
+        <div class="investment-box">
+          <span>Investimento</span>
+          <strong>${service.investment}</strong>
+          ${service.promoText ? `<p>${service.promoText}</p>` : ''}
+        </div>
+      ` : ''}
       ${service.sections.map(renderSection).join('')}
       ${service.note ? `<p class="modal-note">${service.note}</p>` : ''}
       ${renderProposalFields(service.proposalFields)}

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f5f1e8" />
+  <meta name="description" content="Confirmação de inscrição no Reconecta, experiência em grupo da nutricionista Bruna Azeredo." />
+  <title>Reconecta | Inscrição quase concluída</title>
+  <link rel="icon" type="image/jpeg" href="/logo_1.jpg" />
+  <link rel="apple-touch-icon" href="/logo_1.jpg" />
+  <link rel="stylesheet" href="/bio/styles.css" />
+  <script src="/bio/reconecta-config.js"></script>
+</head>
+<body>
+  <main class="confirmation-page">
+    <section class="confirmation-shell" aria-labelledby="confirmation-title">
+      <article class="confirmation-card">
+        <div class="confirmation-copy">
+          <div class="confirmation-mark" aria-hidden="true">✓</div>
+          <p class="section-label">Reconecta</p>
+          <h1 id="confirmation-title">Parabéns!</h1>
+          <p>Sua inscrição no Reconecta está quase concluída. Agora solicite sua entrada no grupo oficial.</p>
+          <p>Após a solicitação, aguarde a aprovação para entrar no grupo.</p>
+
+          <div class="confirmation-actions">
+            <a class="button button-primary" id="whatsapp-group-link" href="#" target="_blank" rel="noreferrer">Entrar no grupo Reconecta</a>
+            <a class="button button-ghost" href="/bio/">Voltar ao bio site</a>
+          </div>
+
+          <p class="confirmation-note">
+            <strong>A entrada no grupo está sujeita à aprovação.</strong>
+            Após solicitar o acesso, aguarde a liberação. Utilize preferencialmente o mesmo nome informado no pagamento.
+          </p>
+        </div>
+        <div class="confirmation-image">
+          <img src="/bio/assets/bruna-cafe.jpg" alt="Bruna Azeredo em um ambiente acolhedor" />
+        </div>
+      </article>
+    </section>
+  </main>
+  <script>
+    document.getElementById('whatsapp-group-link').href = window.RECONECTA_CONFIG.whatsappGroupUrl;
+  </script>
+</body>
+</html>
