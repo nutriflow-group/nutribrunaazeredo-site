@@ -45,7 +45,7 @@ export default async function handler(request, response) {
       back_urls: {
         success: `${baseUrl}/bio/reconecta/confirmado/`,
         failure: `${baseUrl}/bio/`,
-        pending: `${baseUrl}/bio/`
+        pending: `${baseUrl}/bio/reconecta/pendente/`
       },
       auto_return: 'approved',
       external_reference: 'reconecta-promocao-abertura',

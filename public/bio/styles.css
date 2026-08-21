@@ -156,6 +156,7 @@ footer { padding-bottom: 36px; }
 .confirmation-card { display: grid; grid-template-columns: 1.02fr .78fr; gap: 34px; align-items: stretch; border-radius: 32px; overflow: hidden; background: var(--paper); border: 1px solid var(--line); box-shadow: 0 24px 70px rgba(36,51,40,.11); }
 .confirmation-copy { padding: clamp(34px, 6vw, 70px); display: flex; flex-direction: column; justify-content: center; }
 .confirmation-mark { width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; background: var(--ink); color: #fff; font-size: 30px; margin-bottom: 26px; }
+.confirmation-mark-pending { background: var(--clay); font-size: 25px; }
 .confirmation-copy h1 { font-size: clamp(44px, 7vw, 76px); margin: 12px 0 22px; max-width: 720px; }
 .confirmation-copy > p { color: var(--muted); font-size: 18px; line-height: 1.7; max-width: 600px; }
 .confirmation-actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 28px 0 0; }
