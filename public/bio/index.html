@@ -156,34 +156,50 @@
           title: 'Opções de acompanhamento',
           cards: [
             {
-              title: 'Pacote com 2 consultas',
+              title: 'Consulta Avulsa',
+              label: 'Direcionamento pontual',
+              price: 'R$ 180,00',
+              description: 'Ideal para quem já tem autonomia e precisa de um direcionamento pontual.',
               items: [
-                '1 consulta inicial',
-                '1 consulta de acompanhamento',
-                'chat ilimitado durante o período contratado',
-                'acesso ao aplicativo',
-                'plano alimentar personalizado',
-                'acompanhamento da evolução'
+                '1 sessão detalhada por videoconferência',
+                'análise dos exames laboratoriais atuais',
+                'plano alimentar 100% personalizado para a rotina',
+                'não inclui suporte para dúvidas após a entrega do plano'
               ]
             },
             {
-              title: 'Pacote com 6 consultas',
+              title: 'Plano de Acompanhamento',
+              label: '30 dias · mais procurado',
+              price: 'R$ 280,00',
+              description: 'Ideal para quem precisa de foco, acompanhamento de perto e apoio para não desanimar.',
               items: [
-                '1 consulta inicial',
-                '5 consultas de acompanhamento',
-                'chat ilimitado durante o período contratado',
-                'acesso ao aplicativo',
+                '2 consultas completas em vídeo',
+                'retorno estratégico após 15 dias',
+                'análise de exames e suplementação personalizada',
                 'plano alimentar personalizado',
-                'acompanhamento contínuo',
-                'ajustes progressivos ao longo do processo'
+                'suporte direto via WhatsApp de segunda a sexta'
+              ]
+            },
+            {
+              title: 'Plano de Transformação',
+              label: '90 dias',
+              price: '3x de R$ 220,00 ou R$ 660 à vista',
+              description: 'Recomendado para quem busca uma mudança consistente e quer acompanhamento a longo prazo.',
+              items: [
+                '6 consultas completas em vídeo',
+                'atendimentos quinzenais para acompanhar cada evolução',
+                'novas estratégias alimentares a cada consulta',
+                'acompanhamento da evolução dos exames',
+                'suporte prioritário via WhatsApp durante os 3 meses'
               ]
             }
           ]
         }
       ],
       actions: [
-        { label: 'Conhecer os planos', href: 'WHATSAPP_URL', type: 'primary' },
-        { label: 'Falar com a Bruna', href: 'WHATSAPP_URL', type: 'secondary' }
+        { label: 'Consulta Avulsa', href: 'WHATSAPP_URL', message: 'Olá, Bruna! Tenho interesse na Consulta Avulsa.', type: 'secondary' },
+        { label: 'Acompanhamento 30 dias', href: 'WHATSAPP_URL', message: 'Olá, Bruna! Tenho interesse no Plano de Acompanhamento de 30 dias.', type: 'primary' },
+        { label: 'Transformação 90 dias', href: 'WHATSAPP_URL', message: 'Olá, Bruna! Tenho interesse no Plano de Transformação de 90 dias.', type: 'secondary' }
       ]
     },
     {
@@ -425,6 +441,7 @@
   let lastFocusedElement = null;
 
   const resolveHref = (href) => href === 'WHATSAPP_URL' ? wa : href;
+  const resolveActionHref = (action) => action.message ? `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(action.message)}` : resolveHref(action.href);
 
   function renderServices() {
     servicesContainer.innerHTML = services.map((service) => `
@@ -450,7 +467,10 @@
       <div class="option-grid">
         ${section.cards.map(card => `
           <div class="option-card">
+            ${card.label ? `<span class="option-label">${card.label}</span>` : ''}
             <h4>${card.title}</h4>
+            ${card.description ? `<p>${card.description}</p>` : ''}
+            ${card.price ? `<strong class="option-price">${card.price}</strong>` : ''}
             <ul>${card.items.map(item => `<li>${item}</li>`).join('')}</ul>
           </div>
         `).join('')}
@@ -519,7 +539,7 @@
       ${renderMaterials(service.materials)}
     `;
     modalActions.innerHTML = service.actions.map(action => `
-      <a class="modal-action modal-action-${action.type}" href="${resolveHref(action.href)}" ${resolveHref(action.href).startsWith('/') ? '' : 'target="_blank" rel="noreferrer"'}>${action.label}</a>
+      <a class="modal-action modal-action-${action.type}" href="${resolveActionHref(action)}" ${resolveActionHref(action).startsWith('/') ? '' : 'target="_blank" rel="noreferrer"'}>${action.label}</a>
     `).join('');
 
     modal.hidden = false;

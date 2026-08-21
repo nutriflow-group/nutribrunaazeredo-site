@@ -4,4 +4,7 @@ export const WHATSAPP_URL = `https://wa.me/5521988730072?text=${encodeURICompone
   WHATSAPP_MESSAGE,
 )}`;
 
+export const createWhatsAppUrl = (message: string) =>
+  `https://wa.me/5521988730072?text=${encodeURIComponent(message)}`;
+
 export const INSTAGRAM_URL = "https://instagram.com/nutribrunaazeredo";
