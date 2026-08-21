@@ -1,6 +1,6 @@
 window.RECONECTA_CONFIG = {
   price: 'R$ 49,00',
-  promoText: 'Promoção de abertura: 50% de desconto para as 3 primeiras inscritas.',
+  promoText: '',
   paymentUrl: '/api/reconecta-checkout',
   promoPaymentUrl: 'https://mpago.la/1bw3a63',
   regularPaymentUrl: 'https://mpago.la/2dhSgDZ',

@@ -1,4 +1,4 @@
-const PRICE = 24.5;
+const PRICE = 49;
 const SITE_URL = 'https://www.nutribrunaazeredo.com.br';
 
 function getBaseUrl(request) {
@@ -34,9 +34,9 @@ export default async function handler(request, response) {
     body: JSON.stringify({
       items: [
         {
-          id: 'reconecta-promocao-abertura',
-          title: 'Reconecta - Promocao de abertura',
-          description: 'Inscricao promocional na experiencia em grupo Reconecta',
+          id: 'reconecta',
+          title: 'Reconecta',
+          description: 'Inscricao na experiencia em grupo Reconecta',
           quantity: 1,
           currency_id: 'BRL',
           unit_price: PRICE
@@ -48,11 +48,11 @@ export default async function handler(request, response) {
         pending: `${baseUrl}/bio/reconecta/pendente/`
       },
       auto_return: 'approved',
-      external_reference: 'reconecta-promocao-abertura',
+      external_reference: 'reconecta',
       statement_descriptor: 'RECONECTA',
       metadata: {
         product: 'reconecta',
-        offer: 'promocao_abertura'
+        offer: 'regular'
       }
     })
   });
