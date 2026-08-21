@@ -247,9 +247,10 @@
           ]
         }
       ],
-      note: 'O Reconecta é uma experiência coletiva e educativa. Ele não substitui consulta nutricional individual, diagnóstico ou acompanhamento clínico personalizado.',
+      note: 'Após o pagamento, solicite entrada no grupo. A aprovação será feita após conferência do pagamento no Mercado Pago. O Reconecta é uma experiência coletiva e educativa e não substitui consulta nutricional individual.',
       actions: [
-        { label: serviceSettings.grupoMeta.status === 'open' ? 'Quero participar do Reconecta' : 'Entrar na lista de espera', href: serviceSettings.grupoMeta.paymentLink, type: 'primary' }
+        { label: serviceSettings.grupoMeta.status === 'open' ? '1. Fazer pagamento' : 'Entrar na lista de espera', href: serviceSettings.grupoMeta.paymentLink, type: 'primary' },
+        { label: '2. Solicitar entrada no grupo', href: serviceSettings.grupoMeta.whatsappGroupLink, type: 'secondary' }
       ]
     },
     {
